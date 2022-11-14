@@ -8,7 +8,7 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        //consulta eloquent laravel cintrenido de index
+        //consulta eloquent laravel 
         $services = service::all();
         //return $serv;        
         return view('Servicio.index',compact('services'));
@@ -103,7 +103,7 @@ class ServiceController extends Controller
         $Dserv = Service::findOrFail($id);
         $Dserv->delete();
         //vista
-        return "El resgistro se elimino con exito";
+        //return "El resgistro se elimino con exito";
         return view('servicio')->with('message','Se ha eliminado correctamente la mascota');
     }
 }

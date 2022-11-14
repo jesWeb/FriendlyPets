@@ -28,23 +28,19 @@
                         <label for="text" class="form-label">Nombre </label>
                         <input type="text" class="form-control" name="name" placeholder="servicio" require id="">
                     </div>
-
                     <!-- costo-->
-                   
                         <div class="mb-4">
                             <label for="text" class="form-label">Costo</label>
                             <input type="text" class="form-control" name="costo" placeholder="00.00 MXN" require id="">
                         </div>
-                    
-        
                     <!-- descripcion -->
                     <div class="mb-3">
                         <label for="descripcion" class="form-label">Descripcion</label>
                         <textarea class="form-control" name="descripcion" id="" cols="15" rows="10"></textarea>
                     </div>
-
+                    <!--  -->
                     <div class="m-3">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">enviar </button>
                     </div>
 
                 </form>
