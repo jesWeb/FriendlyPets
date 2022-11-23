@@ -23,7 +23,7 @@ class PetFactory extends Factory
             'edad' => 3,
             'tamaño' => fake()->name(),
             'raza' => fake()->name()
-            //'people_id' => 3,
+            //'people_id' => 1,
         ];
     }
 }

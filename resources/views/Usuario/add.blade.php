@@ -19,8 +19,7 @@
             <form action="{{route('usuario.store')}}" method="POST">
                 <!--  -->
                 {{csrf_field()}}
-                <!-- alertas llamado -->
-                @include('components.flash_alerts')
+              
                 <!--nombre  -->
                 <div class="mb-4">
                     <label for="text" class="form-label">Nombre completo</label>
@@ -33,7 +32,7 @@
                 <!-- dirrecion -->
                 <div class="mb-4">
                     <label for="text" class="form-label">Direccion</label>
-                    <input type="text" name="direccion" class="form-control" require placeholder="cuajimalpa" id="">
+                    <input type="text" name="direccion" class="form-control" require placeholder="ciudad" id="">
                     <!-- alerta -->
                     @error('dirreccion')
                     <small class="form-text text-danger">{{$message}}</small>

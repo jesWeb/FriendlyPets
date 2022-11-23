@@ -27,7 +27,6 @@
                     <label for="text" class="form-label">Nombre </label>
                     <input type="text" class="form-control" name="name" placeholder="jose sanchez " require id="">
                 </div>
-
                 <!-- edad -->
                 <div class="form-group">
                     <div class="">
@@ -35,7 +34,6 @@
                         <input type="number" class="form-control" name="edad" require require id="">
                     </div>
                 </div>
-
                 <!-- sexo -->
                 <div class="mb-3">
                     <label class="form-label" for="sexo">Sexo</label>
@@ -47,7 +45,6 @@
                         </select>
                     </div>
                 </div>
-
                 <!-- tamaño -->
                 <div class="mb-3">
                     <label class="form-label" for="tamaño">Tamaño</label>
@@ -61,7 +58,6 @@
                         </select>
                     </div>
                 </div>
-
                 <!-- raza -->
                 <div class="mb-3">
                     <label for="text" class="form-label">
@@ -69,10 +65,7 @@
                         <input type="text" class="form-control" require name="raza" id="">
                     </label>
                 </div>
-
-
-
-
+                <!-- btn-success -->
                 <div class="m-3">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>

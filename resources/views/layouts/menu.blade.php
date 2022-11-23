@@ -43,11 +43,11 @@
 </li>
 
 <!-- Nav Item - Dashboard -->
-<!-- <li class="nav-item active1">
-    <a class="nav-link" href="/servicios">
+<li class="nav-item active1">
+    <a class="nav-link" href="">
     <i class="fa-solid fa-clock"></i>
     <span>Citas</span></a>
-</li> -->
+</li>
 
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">

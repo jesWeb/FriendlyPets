@@ -16,9 +16,9 @@ class PersonController extends Controller
     public function index()
     {
         //consulta eloquent laravel 
-          $users = person::all();
-          //return $users;
-          return response()->json(['person'=>$users,200]);
+        //   $users = person::all();
+        //   //return $users;
+        //   return response()->json(['cliente'=>$users,200]);
     }
 
     /**

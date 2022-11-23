@@ -30,9 +30,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::delete('mirutaapiD',[SubjectsController::class, 'index'])->name('subject');
 
 
-Route::Apiresource('People',PersonController::class);
-Route::Apiresource('Pets',PetController::class);
-Route::Apiresource('Servicio',ServiceController::class);
+// Route::Apiresource('usuario',PersonController::class);
+// Route::Apiresource('mascotas',PetController::class);
+// Route::Apiresource('Servicio',ServiceController::class);
 //Route::Apiresource('service_checking',ServiceCheckingController::class);
 //Route::Apiresource('type_user',TypeUserController::class);
 //Route::Apiresource('checking',CheckingController::class);

@@ -1,19 +1,17 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\pet;
+use Illuminate\Http\Request;
 
 class PetController extends Controller
 {//
     public function index()
     {
         //consulta base de datos 
-        $mascota = pet::all() ;
-        //return $mascota;
- 
-        return view('Mascota.index',compact('mascota') ) ;
+        $pets = pet::all() ;
+       // return $pets;
+    return view('Mascota.index',compact('pets') ) ;
     }
     /**
      * Show the form for creating a new resource.
@@ -42,8 +40,9 @@ class PetController extends Controller
       $pet->tamaño= $request->input('tamaño');
       $pet->raza= $request->input('raza');
       $pet ->save();
-    //   return $pet;
-      return redirect('Mascota.index')->with('mesagge', 'has creado un usuario exitosamente ');
+    
+      return view('Mascota.index');
+    
     }
  
     /**
@@ -54,7 +53,7 @@ class PetController extends Controller
      */
     public function show($id)
     {
-        //
+        //vista de mascota 
         $mascot = Pet::find($id);
         return view('Mascota.show',compact('mascot'));
     }
@@ -62,15 +61,13 @@ class PetController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int 
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         //editar mascota
-        $Eddpet = Pet::find($id);
-        //tester
-        //return $Eddpet
+        $Eddpet = Pet::findOrFail($id);
         //vista
         return view('Mascota.edit',compact('Eddpet'));
     }
@@ -78,8 +75,7 @@ class PetController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -102,6 +98,8 @@ class PetController extends Controller
         //ELIMINAR
         $endPet = Pet::findOrFail($id);
         $endPet->delete();
+        //vista mensaje
         return redirect('mascota')->with('mesagge','Se ha eliminado correctamente la mascota');
     }
 }
+

@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\person;
-use App\Models\User;
 use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\Return_;
 
 //modelo
 
@@ -18,49 +16,45 @@ class PersonController extends Controller
     
    public function index()
    {
-       //cosulta eloquent laravel
+       //cosulta DB eloquent laravel
         $users = person::all();
-        //return $users;
+        //vista
         return view('Usuario.index',compact('users'));
     }    
-
-   /**
-    * Show the form for creating a new resource.
-    *
+    
+    /**
+    *Muestra el formulario para crear un nuevo recurso.
     * @return \Illuminate\Http\Response
     */
    public function create()
    {
-       //
+       //vista de formulario
        return view('Usuario.add');
    }
 
    /**
-    * Store a newly created resource in storage.
-    *
-    * @param  \Illuminate\Http\Request  $request
+    * Almacena un recurso recién creado en el almacenamiento.
+    * @param  \Illuminate\Http\Request  
     * @return \Illuminate\Http\Response
     */
-   public function store(Request $request)
-   {
-       //formulario almacenamiento de datos
-      $AddPerson = new Person;
-      $AddPerson->name= $request->input('name');  
-      $AddPerson->sexo= $request->input('sexo');
-      $AddPerson->direccion= $request->input('direccion');
-      $AddPerson->edad= $request->input('edad');
-      $AddPerson->email= $request->input('email');
-      $AddPerson->telefono= $request->input('telefono');
-      $AddPerson->password= $request->input('password');
-      //guardar datos 
-      $AddPerson ->save();
-      //tester
-     //return $AddPerson;
-     //vista
-     return redirect('usuario.index')->with('mesagge', 'has creado un usuario exitosamente ');
-   }
-
-   /**
+    public function store(Request $request)
+    {
+         //formulario almacenamiento de datos
+         $Newuser = new Person;
+         $Newuser->name= $request->input('name');  
+         $Newuser->sexo= $request->input('sexo');
+         $Newuser->direccion= $request->input('direccion');
+         $Newuser->edad= $request->input('edad');
+         $Newuser->email= $request->input('email');
+         $Newuser->telefono= $request->input('telefono');
+         $Newuser->password= $request->input('password');
+        //guardamos datos en BD 
+        $Newuser ->save();
+        //vista
+       return $Newuser;
+        //return view('Usuario.index');
+    }
+    /**
     * Display the specified resource.
     *
     * @param  int  $id
@@ -68,30 +62,29 @@ class PersonController extends Controller
     */
    public function show($id)
    {
-       //
-       $Mostraruser = person::find($id);
-      // return  $Mostraruser;
-      return view('Usuario.show',compact('Mostraruser'));
-      }
+    //mostrar recurso 
+    $Mostraruser = person::find($id);
+    return view('Usuario.show',compact('Mostraruser'));
+    }
 
-   /**
-    * Show the form for editing the specified resource.
-    *
+    /**
+    * Muestra el formulario para editar el recurso especificado.
     * @param  int  $id
     * @return \Illuminate\Http\Response
     */
-   public function edit($id)
-   {
+    
+     public function edit($id)
+     {
        //editar ususario
        $EddUser = person::findOrFail($id);
        //vista
        return view('Usuario.edit',compact('EddUser'));
-   }
-
-   /**
-    * Update the specified resource in storage.
+     }
+    
+     /**
+    * Actualice el recurso especificado en el almacenamiento.
     *
-    * @param  \Illuminate\Http\Request  $request
+    * @param  \Illuminate\Http\Request  
     * @param  int  $id
     * @return \Illuminate\Http\Response
     */
@@ -103,22 +96,22 @@ class PersonController extends Controller
        $EddUser->update($input);
        return redirect('usuario')->with('mesagge','Se ha actualizado el registro correctamente');
    }
-
+   
    /**
-    * Remove the specified resource from storage.
+    *Elimina el recurso especificado del almacenamiento.
     *
     * @param  int  $id
     * @return \Illuminate\Http\Response
     */
-   public function destroy($id)
-   {
-       //ELIMINAR
-       $user = person::findOrFail($id);
-       $user->delete();
-       //return "El resgistro se elimino con exito";
-       return redirect('usuario')->with('mesagge','Se ha eliminado correctamente el usuario');
-
-   }
-
+    public function destroy($id)
+    {
+        //ELIMINAR
+        $user = person::findOrFail($id);
+        $user->delete();
+        //return "El resgistro se elimino con exito";
+        return redirect('usuario')->with('mesagge','Se ha eliminado correctamente el usuario');
+ 
+    }
+ 
 
 }

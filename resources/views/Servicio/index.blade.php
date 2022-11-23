@@ -41,7 +41,7 @@
                 </div>
                 <div class="card-body">
                     <!-- alerts crud -->
-                    @include('components.flash_alert')
+                            
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">

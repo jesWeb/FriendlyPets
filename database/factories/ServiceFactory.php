@@ -21,10 +21,8 @@ class ServiceFactory extends Factory
             'name' => fake()->name(),
             'costo' => 150,
             'descripcion' => fake()->sentence(),
-            //'pet_id'=>5,
+            //'pet_id'=>1,
             //'people_id'=>1,
-
-            
         ];
     }
 }

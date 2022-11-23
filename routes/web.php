@@ -22,14 +22,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-//resources
-            //nombreRT  //controlador            //
- //Route::get('usuario',[PersonController::class, 'index'])->name('person.index');
- //Route::post('/usuarios',[PersonController::class, 'store'])->name('usuario.store');
-// Route::put('mirutaapiPU',[SubjectsController::class, 'index'])->name('subject');
-// Route::delete('mirutaapiD',[SubjectsController::class, 'index'])->name('subject');
-
 Route::resource('usuario',PersonController::class);
 Route::resource('mascota',PetController::class);
 Route::resource('servicios',ServiceController::class);
@@ -37,6 +29,3 @@ Route::resource('checking',CheckingController::class);
 Route::resource('servcheck',ServiceCheckingController::class);
 Route::resource('tipUser',TypeUserController::class);
 Route::resource('AddUser',PersonController::class);
-//Route::resource('service_checking',ServiceCheckingController::class);
-//Route::resource('type_user',TypeUserController::class);
-//Route::resource('checking',CheckingController::class);

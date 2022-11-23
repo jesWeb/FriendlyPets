@@ -55,8 +55,7 @@
                         </div>
                         <!-- consulta laravel eloquente  -->
                         <div class="card-body">
-                                <!-- lllamado alertas -->
-                            @include('components.flash_alert')
+
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -73,7 +72,7 @@
 
                                     <tbody>
                                         <!-- consulta -->
-                                        @foreach($mascota as $pet)
+                                        @foreach($pets as $pet)
                                         <tr>
                                             <td>{{$pet->id}}</td>
                                             <td>{{$pet->name}}</td>
@@ -83,7 +82,6 @@
                                             <td>{{$pet->raza}}</td>
                                             <!-- botones  -->
                                             <td>
-
                                                 <div class="row col-12">
                                                     <div class="col-4">
                                                         <a class="btn btn-success m-3"
@@ -105,7 +103,6 @@
                                                         </form>
                                                     </div>
                                                 </div>
-
                                             </td>
                                         </tr>
                                         @endforeach

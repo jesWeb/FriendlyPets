@@ -21,7 +21,7 @@ class CheckingFactory extends Factory
             'entrada' => fake()->sentence(),
             'salida' => fake()->sentence(),
             'total' =>80,
-            'pet_id'=> 3,
+            // 'pet_id'=> 3,
         ];
     }
 }
