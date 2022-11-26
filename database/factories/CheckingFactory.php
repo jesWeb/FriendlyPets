@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\pet;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,10 +19,12 @@ class CheckingFactory extends Factory
     {
         return [
             //
+            'fecha' => fake()->sentence(),
             'entrada' => fake()->sentence(),
             'salida' => fake()->sentence(),
             'total' =>80,
-            // 'pet_id'=> 3,
+            'pet_id' => pet::all()->random()->id,
+            
         ];
     }
 }

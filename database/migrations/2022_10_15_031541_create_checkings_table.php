@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('checkings', function (Blueprint $table) {
             $table->id();
+            $table->string('fecha');
             $table->string('entrada');
             $table->string('salida');
             $table->integer('total');

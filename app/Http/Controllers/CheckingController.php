@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\checking;
 use Illuminate\Http\Request;
 
 class CheckingController extends Controller
 {
     public function index()
     {
-        //cosulta eloquent laravel
-        // $users = person::all();
-        // return $user ,compact('users');
-         return view('');
+        //cosulta DB eloquent laravel
+       $citas = checking::all('fecha','total');
+       //vista
+       return view('Citas.index',compact('citas'));
      }    
  
     /**
@@ -21,8 +22,9 @@ class CheckingController extends Controller
      */
     public function create()
     {
-        //
-        return view('');
+         //vista de formulario
+       return view('Citas.add');
+       
     }
  
     /**
@@ -34,9 +36,15 @@ class CheckingController extends Controller
     public function store(Request $request)
     {
         //formulario almacenamiento de datos
-       //$person = new Person($request -> all());
-       //$person ->save();
- 
+        $Newcita = new checking;
+        $Newcita ->fecha =$request->input('fecha'); 
+        $Newcita ->entrada =$request->input('entrada');
+        $Newcita ->salida =$request->input('salida');
+        $Newcita ->total =$request->input('total');
+        //guardamos datos en BD 
+        $Newcita ->save();
+          //guardamos datos en BD 
+          return redirect('checking')->with('message','Se ha creado correctamente la cita');
     }
  
     /**
@@ -47,11 +55,9 @@ class CheckingController extends Controller
      */
     public function show($id)
     {
-        //
-        return view('');
-       // $user = person::find($id);
- 
-       // return  $user;
+         //mostrar recurso 
+    $Mostrarcita = checking::find($id);
+    return view('Citas.show',compact('Mostrarcita'));
        }
  
     /**
@@ -62,8 +68,10 @@ class CheckingController extends Controller
      */
     public function edit($id)
     {
-        //
-        return view('');
+          //editar ususario
+       $EddCita = checking::findOrFail($id);
+       //vista
+       return view('Citas.edit',compact('EddCita'));
     }
  
     /**
@@ -75,7 +83,11 @@ class CheckingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         /* desarrollamos nuestra logica */
+       $EddCita = checking::findOrFail($id);
+       $input=$request->all();
+       $EddCita->update($input);
+       return redirect('checking')->with('messagedit','Se ha actualizado la cita correctamente');
     }
  
     /**
@@ -86,7 +98,11 @@ class CheckingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //ELIMINAR
+        $cita = checking::findOrFail($id);
+        $cita->delete();
+        //return "El resgistro se elimino con exito";
+        return redirect('checking')->with('eliminacion','Se ha eliminado correctamente el usuario');
     }
  
 }

@@ -44,7 +44,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active1">
-    <a class="nav-link" href="">
+    <a class="nav-link" href="/checking">
     <i class="fa-solid fa-clock"></i>
     <span>Citas</span></a>
 </li>

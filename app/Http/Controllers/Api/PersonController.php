@@ -16,9 +16,9 @@ class PersonController extends Controller
     public function index()
     {
         //consulta eloquent laravel 
-        //   $users = person::all();
+           $users = person::all();
         //   //return $users;
-        //   return response()->json(['cliente'=>$users,200]);
+           return response()->json(['cliente'=>$users,200]);
     }
 
     /**
@@ -73,7 +73,7 @@ class PersonController extends Controller
      */
     public function destroy($id)
     {
-        //ELIMINAR
+          //ELIMINAR
        $user = person::findOrFail($id);
        $user->delete();
        //vista mensaje

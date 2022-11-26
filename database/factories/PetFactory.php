@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\person;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,8 +23,8 @@ class PetFactory extends Factory
             'sexo' => fake()->randomElement(['Mujer','Hombre']),
             'edad' => 3,
             'tamaño' => fake()->name(),
-            'raza' => fake()->name()
-            //'people_id' => 1,
+            'raza' => fake()->name(),
+            'people_id' => person::all()->random()->id,
         ];
     }
 }

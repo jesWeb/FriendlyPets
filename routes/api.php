@@ -24,15 +24,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Route::get('persona',[PersonController::class, 'index'])->name('persona.index');
-// Route::post('mirutaapiP',[SubjectsController::class, 'index'])->name('subject');
-// Route::put('mirutaapiPU',[SubjectsController::class, 'index'])->name('subject');
-// Route::delete('mirutaapiD',[SubjectsController::class, 'index'])->name('subject');
-
-
-// Route::Apiresource('usuario',PersonController::class);
-// Route::Apiresource('mascotas',PetController::class);
-// Route::Apiresource('Servicio',ServiceController::class);
+Route::Apiresource('users',PersonController::class);
+Route::Apiresource('pets',PetController::class);
+Route::Apiresource('Service',ServiceController::class);
+Route::Apiresource('cita',CheckingController::class);
 //Route::Apiresource('service_checking',ServiceCheckingController::class);
 //Route::Apiresource('type_user',TypeUserController::class);
-//Route::Apiresource('checking',CheckingController::class);

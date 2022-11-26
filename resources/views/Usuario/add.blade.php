@@ -15,11 +15,12 @@
     </div>
     <!-- Content Row -->
     <div class="d-flex justify-content-center aling-content-center">
+    @include('components.flash_alerts') 
         <div class="shadow card-body mt-4">
             <form action="{{route('usuario.store')}}" method="POST">
                 <!--  -->
                 {{csrf_field()}}
-              
+               
                 <!--nombre  -->
                 <div class="mb-4">
                     <label for="text" class="form-label">Nombre completo</label>
@@ -64,20 +65,34 @@
                 <div class="mb-4">
                     <label for="number">Telefono;</label>
                     <input type="number" name="telefono" class="form-control" require placeholder="+52" id="">
+                 <!-- alerta -->
+                 @error('telefono')
+                        <small class="form-text text-danger">{{$message}}</small>
+                 @enderror
                 </div>
                 <!-- email -->
                 <div class="mb-4">
                     <label for="email" class="form-label">Correo electronico</label>
                     <input type="email" class="form-control" name="email" require placeholder="@gmail" id="">
+                 <!-- alerta -->
+                 @error('email')
+                        <small class="form-text text-danger">{{$message}}</small>
+                @enderror
                 </div>
                 <!-- password -->
                 <div class="mb-4">
                     <label for="password" class="form-label">contraseña</label>
                     <input type="password" class="form-control" name="password" require id="">
+                 <!-- alerta -->
+                 @error('password')
+                        <small class="form-text text-danger">{{$message}}</small>
+                        @enderror
                 </div>
                 <!-- btn enviar -->
-                <div class="m-3">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                <div class="row">
+                     <a class="btn btn-danger m-3"  href="/usuario" >Cancelar</a>
+                    <button type="submit" class="btn btn-primary m-3" value="save">Guadar</button>
+
                 </div>
 
             </form>

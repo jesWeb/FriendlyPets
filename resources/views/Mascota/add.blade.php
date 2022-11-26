@@ -19,19 +19,28 @@
 
     <!-- Content Row -->
     <div class="d-flex justify-content-center aling-content-center">
+        @include('components.flash_alerts')
         <div class="shadow card-body mt-4">
             <form action="{{route('mascota.store')}}" method="POST">
                 {{csrf_field()}}
                 <!--nombre  -->
                 <div class="mb-4">
                     <label for="text" class="form-label">Nombre </label>
-                    <input type="text" class="form-control" name="name" placeholder="jose sanchez " require id="">
+                    <input type="text" class="form-control" name="name" placeholder="Nombre " require id="">
+                    <!-- alerta -->
+                    @error('name')
+                    <small class="form-text text-danger">{{$message}}</small>
+                    @enderror
                 </div>
                 <!-- edad -->
                 <div class="form-group">
                     <div class="">
                         <label for="number" class="form-label">Edad</label>
                         <input type="number" class="form-control" name="edad" require require id="">
+                        <!-- alerta -->
+                        @error('edad')
+                        <small class="form-text text-danger">{{$message}}</small>
+                        @enderror
                     </div>
                 </div>
                 <!-- sexo -->
@@ -54,7 +63,6 @@
                             <option value="chico">Chico</option>
                             <option value="mediano">Mediano</option>
                             <option value="grande">Grande</option>
-
                         </select>
                     </div>
                 </div>
@@ -64,15 +72,30 @@
                         Raza
                         <input type="text" class="form-control" require name="raza" id="">
                     </label>
+                    <!-- alerta -->
+                    @error('raza')
+                    <small class="form-text text-danger">{{$message}}</small>
+                    @enderror
                 </div>
-                <!-- btn-success -->
-                <div class="m-3">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                <!-- dueños -->
+                <div class="form-group">
+                    <label for=""> Nombre dueño</label>
+                    <select class="form-control form-select" aria-label="Default select example" name="people_id">
+                        <option selected>Dueños</option>
+                        @foreach($users as $user)
+                        <option value={{$user->id}}>{{$user->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
 
-            </form>
+        <!-- btn-success -->
+        <div class="m-3">
+            <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
+
+        </form>
     </div>
+</div>
 </div>
 
 <!-- End of Main Content -->

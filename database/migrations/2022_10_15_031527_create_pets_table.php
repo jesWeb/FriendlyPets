@@ -20,9 +20,10 @@ return new class extends Migration
             $table->integer('edad');
             $table->string('tamaño');
             $table->string('raza');
+            // $table->string('dueño');
             //llave foranea
-            //$table->unsignedBigInteger('people_id');
-            //$table->foreign('people_id')->references('id')->on('people');
+            $table->unsignedBigInteger('people_id');
+            $table->foreign('people_id')->references('id')->on('people');
             $table->timestamps();
         });
     }

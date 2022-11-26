@@ -55,7 +55,7 @@
                         </div>
                         <!-- consulta laravel eloquente  -->
                         <div class="card-body">
-
+                        @include('components.flash_alerts')
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -80,6 +80,7 @@
                                             <td>{{$pet->edad}}</td>
                                             <td>{{$pet->tamaño}}</td>
                                             <td>{{$pet->raza}}</td>
+                                            <!-- <td>{{$pet->dueño}}</td> -->
                                             <!-- botones  -->
                                             <td>
                                                 <div class="row col-12">

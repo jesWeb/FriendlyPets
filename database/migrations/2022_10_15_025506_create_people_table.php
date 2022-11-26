@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('password')->unique();
            
             //llave foranea
-            //$table->unsignedBigInteger('type_user_id');
-            //$table->foreign('type_user_id')->references('id')->on('type_users');
+        //    $table->unsignedBigInteger('type_user_id');
+        // $table->foreign('type_user_id')->references('id')->on('type_users');
             $table->timestamps();
         });
     }

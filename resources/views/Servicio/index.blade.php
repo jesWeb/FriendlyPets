@@ -41,7 +41,7 @@
                 </div>
                 <div class="card-body">
                     <!-- alerts crud -->
-                            
+                    @include('components.flash_alerts') 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -72,10 +72,7 @@
                                             <td>{{$serv->name}}</td>
                                             <td>{{$serv->costo}}</td>
                                             <td>{{$serv->descripcion}}</td>
-                                            <!-- <td>{{$serv->edad}}</td>
-                                            <!-- <td>{{$serv->type_user_id}}</td> -->
-                                            <!-- <td>{{$serv->email}}</td>
-                                            -->
+                                            
                                             <!-- botones  -->
                                             <td>
                                                 <div class="row col-12">

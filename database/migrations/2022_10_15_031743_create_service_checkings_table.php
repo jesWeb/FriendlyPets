@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->integer('total');
             //llave foranea
-            $table->unsignedBigInteger('serv_id');
-            $table->foreign('serv_id')->references('id')->on('services');
+            // $table->unsignedBigInteger('serv_id');
+            // $table->foreign('serv_id')->references('id')->on('services');
 
-            $table->unsignedBigInteger('check_id');
-            $table->foreign('check_id')->references('id')->on('checkings');
+            // $table->unsignedBigInteger('check_id');
+            // $table->foreign('check_id')->references('id')->on('checkings');
             
             $table->timestamps();
         });

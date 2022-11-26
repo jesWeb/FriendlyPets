@@ -15,6 +15,7 @@
 
     <!-- Content Row -->
     <div class="d-flex justify-content-center aling-content-center">
+    @include('components.flash_alerts') 
         <div class="shadow card-body mt-4">
             <!-- editar  usuario -->
             <form action="{{url('usuario/' .$EddUser->id) }}" method="post">
@@ -24,18 +25,29 @@
                 <div class="mb-4">
                     <label for="text" class="form-label">Nombre completo</label>
                     <input type="text" class="form-control" name="name" placeholder="jose sanchez "  value="{{$EddUser->name}}" require id="">
+                     <!-- alerta -->
+                     @error('name')
+                    <small class="form-text text-danger">{{$message}}</small>
+                    @enderror
                 </div>
                 <!-- dirrecion -->
                 <div class="mb-4">
                     <label for="text" class="form-label">Direccion</label>
                     <input type="text" name="direccion" class="form-control"  value="{{$EddUser->direccion}}"require placeholder="cuajimalpa" id="">
+                    <!-- alerta -->
+                    @error('dirreccion')
+                    <small class="form-text text-danger">{{$message}}</small>
+                    @enderror
                 </div>
                 <!-- edad -->
                 <div class="form-group">
                     <div class="">
                         <label for="number" class="form-label">Edad</label>
                         <input type="number" class="form-control" name="edad"  value="{{$EddUser->edad}}"require require id="">
-
+                        <!-- alerta -->
+                        @error('edad')
+                        <small class="form-text text-danger">{{$message}}</small>
+                        @enderror
                     </div>
                 </div>
 
@@ -52,6 +64,10 @@
                 <div class="mb-4">
                     <label for="number">Telefono;</label>
                     <input type="number" name="telefono" class="form-control"  value="{{$EddUser->telefono}}"require placeholder="+52" id="">
+                     <!-- alerta -->
+                 @error('telefono')
+                        <small class="form-text text-danger">{{$message}}</small>
+                 @enderror
                 </div>
 
                 <div class="mb-4">
@@ -62,11 +78,15 @@
                 <div class="mb-4">
                     <label for="password" class="form-label">contraseña</label>
                     <input type="password" class="form-control" name="password" value="{{$EddUser->password}}" require id="">
+                    <!-- alerta -->
+                 @error('email')
+                        <small class="form-text text-danger">{{$message}}</small>
+                 @enderror
                 </div>
 
 
                 <div class="m-3">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary ">Guardar</button>
                 </div>
 
             </form>

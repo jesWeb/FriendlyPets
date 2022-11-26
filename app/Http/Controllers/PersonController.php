@@ -1,12 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\person;
 use Illuminate\Http\Request;
-
 //modelo
-
 class PersonController extends Controller
 {
    // **
@@ -20,6 +16,11 @@ class PersonController extends Controller
         $users = person::all();
         //vista
         return view('Usuario.index',compact('users'));
+        //inner join
+        // $userJoin = person::select('pet','service'),
+        // -> join('name')->get();
+
+
     }    
     
     /**
@@ -51,8 +52,8 @@ class PersonController extends Controller
         //guardamos datos en BD 
         $Newuser ->save();
         //vista
-       return $Newuser;
-        //return view('Usuario.index');
+       //return $Newuser;
+        return redirect('usuario')->with('message','Se ha creado correctamente el Usuario');
     }
     /**
     * Display the specified resource.
@@ -94,7 +95,7 @@ class PersonController extends Controller
        $EddUser = person::findOrFail($id);
        $input=$request->all();
        $EddUser->update($input);
-       return redirect('usuario')->with('mesagge','Se ha actualizado el registro correctamente');
+       return redirect('usuario')->with('messagedit','Se ha actualizado el registro correctamente');
    }
    
    /**
@@ -109,9 +110,10 @@ class PersonController extends Controller
         $user = person::findOrFail($id);
         $user->delete();
         //return "El resgistro se elimino con exito";
-        return redirect('usuario')->with('mesagge','Se ha eliminado correctamente el usuario');
+        return redirect('usuario')->with('eliminacion','Se ha eliminado correctamente el usuario');
  
     }
  
 
 }
+

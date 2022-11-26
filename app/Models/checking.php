@@ -9,9 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class checking extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+    //use SoftDeletes;
 
     protected $fillable = [
+        'fecha',
         'entrada',
         'salida',
         'total'

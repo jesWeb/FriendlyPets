@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\checking;
+use App\Models\service;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,8 +21,8 @@ class Service_checkingFactory extends Factory
         return [
             //
             'total' =>80,
-            'serv_id'=>1,
-            'check_id'=>1
+            // 'serv_id' => service::all()->random()->id,
+            // 'check_id' => checking::all()->random()->id,
             
         ];
     }

@@ -57,6 +57,7 @@
                         </div>
                         <!-- consulta laravel eloquente  -->
                         <div class="card-body">
+                        @include('components.flash_alerts') 
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -97,7 +98,7 @@
                                                                 class="fa-solid fa-pen-to-square"></i></a>
                                                     </div>
                                                     <div class="col-4">
-                                                        <form action="checking/{{$user->id}}" method="post">
+                                                        <form action="usuario/{{$user->id}}" method="post">
                                                             {!! csrf_field() !!}
                                                             @method("delete")
 

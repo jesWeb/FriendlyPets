@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\person;
 use App\Models\pet;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,9 @@ class PetController extends Controller
     public function create()
     {
         //
-        return view('Mascota.add');
+        $users = person::all('id','name');
+        return view('Mascota.add', compact('users'));
+        
     }
  
     /**
@@ -39,10 +42,10 @@ class PetController extends Controller
       $pet->edad= $request->input('edad');
       $pet->tamaño= $request->input('tamaño');
       $pet->raza= $request->input('raza');
+      $pet->people_id= $request->input('people_id');
       $pet ->save();
-    
-      return view('Mascota.index');
-    
+     //vista
+      return redirect('mascota')->with('message','Se ha registrado exitosamnete la Mascota');
     }
  
     /**
@@ -84,7 +87,7 @@ class PetController extends Controller
        $Eddpet = Pet::findOrFail($id);
        $input=$request->all();
        $Eddpet->update($input);
-       return redirect('mascota')->with('mesagge','Se ha actualizado el registro correctamente');
+       return redirect('mascota')->with('messagedit','Se ha actualizado la informacion de la mascota Exitosamente');
     }
  
     /**
@@ -99,7 +102,7 @@ class PetController extends Controller
         $endPet = Pet::findOrFail($id);
         $endPet->delete();
         //vista mensaje
-        return redirect('mascota')->with('mesagge','Se ha eliminado correctamente la mascota');
+        return redirect('mascota')->with('eliminacion','Se ha eliminado correctamente la mascota');
     }
 }
 

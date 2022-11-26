@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\person;
+use App\Models\pet;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,8 +23,9 @@ class ServiceFactory extends Factory
             'name' => fake()->name(),
             'costo' => 150,
             'descripcion' => fake()->sentence(),
-            //'pet_id'=>1,
-            //'people_id'=>1,
+          
+            // 'pet_id' => pet::all()->random()->id,
+            // 'people_id' => person::all()->random()->id,
         ];
     }
 }

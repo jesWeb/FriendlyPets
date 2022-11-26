@@ -41,7 +41,7 @@ public function store(Request $request)
   //guardamos DB
   $service ->save();
    //tester
-  return $service;
+   return redirect('servicios')->with('message','Se ha creado correctamente el servicio');
 
 }
 /**
@@ -85,7 +85,9 @@ public function update(Request $request, $id)
     $ServUp = Service::findOrFail($id);
     $input=$request->all();
     $ServUp->update($input);
-    //return redirect('servicio')->with('message','Se ha actualizado el registro correctamente');
+    //vista
+    return redirect('servicios')->with('messagedit','se ha modificado la informacion del servicio')  ;
+
 }
 
 /**
@@ -100,8 +102,8 @@ public function destroy($id)
     $Dserv = Service::findOrFail($id);
     $Dserv->delete();
     //vista
-    return "El resgistro se elimino con exito";
-    //return view('servicio')->with('message','Se ha eliminado correctamente la mascota');
+   // return "El resgistro se elimino con exito";
+   return redirect('servicios')->with('eliminacion','se ha eliminado el servicio exitosamente');
 }
 
 }

@@ -11,7 +11,8 @@
     <!-- Begin Page Content -->
     <!-- Content Row -->
     <div class="d-flex justify-content-center aling-content-center">
-        <div class="shadow card-body mt-4">
+    @include('components.flash_alerts')    
+    <div class="shadow card-body mt-4">
             <form action="{{url('mascota/' .$Eddpet->id) }}" method="post">
                 {{csrf_field()}}
                 @method("PATCH")
@@ -19,6 +20,10 @@
                 <div class="mb-4">
                     <label for="text" class="form-label">Nombre </label>
                     <input type="text" class="form-control"   value="{{$Eddpet->name}}"  name="name" placeholder="My puchy " require id="">
+                     <!-- alerta -->
+                     @error('name')
+                    <small class="form-text text-danger">{{$message}}</small>
+                    @enderror
                 </div>
                 <!-- edad -->
                 <div class="form-group">
@@ -26,6 +31,10 @@
                         <label for="number" class="form-label">Edad</label>
                         <input type="number" class="form-control"  value="{{$Eddpet->edad}}" name="edad" require require id="">
                     </div>
+                 <!-- alerta -->
+                 @error('edad')
+                    <small class="form-text text-danger">{{$message}}</small>
+                    @enderror
                 </div>
                 <!-- sexo -->
                 <div class="mb-3">
@@ -57,10 +66,14 @@
                         Raza
                         <input type="text" class="form-control" require  value="{{$Eddpet->raza}}" name="raza" id="">
                     </label>
+                     <!-- alerta -->
+                     @error('raza')
+                    <small class="form-text text-danger">{{$message}}</small>
+                    @enderror
                 </div>
                 <!-- btn sumbit -->
                 <div class="m-3">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="submit" class="btn btn-primary" value="update">Guardar</button>
                 </div>
 
             </form>

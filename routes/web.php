@@ -7,6 +7,9 @@ use App\Http\Controllers\ServiceCheckingController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TypeUserController;
 use App\Http\Controllers\CheckingController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +28,11 @@ Route::get('/', function () {
 Route::resource('usuario',PersonController::class);
 Route::resource('mascota',PetController::class);
 Route::resource('servicios',ServiceController::class);
-Route::resource('checking',CheckingController::class);
+Route::resource('citas',CheckingController::class);
 Route::resource('servcheck',ServiceCheckingController::class);
 Route::resource('tipUser',TypeUserController::class);
 Route::resource('AddUser',PersonController::class);
+//login
+Auth::routes();
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');

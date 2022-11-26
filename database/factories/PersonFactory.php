@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\type_user;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -25,7 +26,7 @@ class PersonFactory extends Factory
             'telefono' => 55,
             'email' => fake()->unique()->safeEmail(),
             'password' => fake()->unique()->sentence(), // password
-            //'type_user_id' =>1,
+            // 'type_user_id' => type_user::all()->random()->id,
         ];
     }
 }

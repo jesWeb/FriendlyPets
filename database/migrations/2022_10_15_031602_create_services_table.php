@@ -20,10 +20,10 @@ return new class extends Migration
             $table->string('descripcion');
            
             //llave foranea
-            //$table->unsignedBigInteger('pet_id');
-            //$table->foreign('pet_id')->references('id')->on('pets');
-            //$table->unsignedBigInteger('people_id');
-            //$table->foreign('people_id')->references('id')->on('people');
+           // $table->unsignedBigInteger('pet_id');
+           // $table->foreign('pet_id')->references('id')->on('pets');
+            // $table->unsignedBigInteger('people_id');
+            // $table->foreign('people_id')->references('id')->on('people');
             
             $table->timestamps();
         });
