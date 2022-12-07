@@ -22,7 +22,7 @@
         <div class="d-flex justify-content-center aling-content-center">
         @include('components.flash_alerts')
             <div class="shadow card-body mt-4">
-                <form action="{{url('servicios/' .$Eddserv->id) }}" method="post">
+                <form action="{{url('citas/' .$Eddserv->id) }}" method="post">
                     {{csrf_field()}}
                     @method("PATCH")
                     <!--nombre  -->

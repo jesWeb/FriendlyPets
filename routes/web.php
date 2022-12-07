@@ -29,10 +29,9 @@ Route::resource('usuario',PersonController::class);
 Route::resource('mascota',PetController::class);
 Route::resource('servicios',ServiceController::class);
 Route::resource('citas',CheckingController::class);
-Route::resource('servcheck',ServiceCheckingController::class);
-Route::resource('tipUser',TypeUserController::class);
-Route::resource('AddUser',PersonController::class);
+// Route::resource('servcheck',ServiceCheckingController::class);
+// Route::resource('tipUser',TypeUserController::class);
+// Route::resource('AddUser',PersonController::class);
 //login
 Auth::routes();
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
