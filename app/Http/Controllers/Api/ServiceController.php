@@ -16,7 +16,7 @@ class ServiceController extends Controller
     {
         //consulta eloquent
         $services = service::all();
-        return response()->json(['servicios'=>$services,200]);
+        return response()->json(['ServiceApi'=>$services,200]);
     }
 
     /**
@@ -31,7 +31,8 @@ class ServiceController extends Controller
         $input=request()->all();
         service::create($input);
 
-        return ('el servicio se dio de alta con exito ');
+        return ('se ha Creado el usuario correctamente');
+
     }
 
     /**
@@ -61,7 +62,9 @@ class ServiceController extends Controller
         $input=$request->all();
         $ServUp->update($input);
         //mensaje de vista 
-        return ('el servicio se actualizo con exito');
+       //vista
+       return ('se ha Creado el usuario correctamente');
+
     }
 
     /**
@@ -76,6 +79,6 @@ class ServiceController extends Controller
         $Dserv = Service::findOrFail($id);
         $Dserv->delete();
         //mensaje de vista
-        return ('el grupo se elimino de manera correcta');
+        return ('Se ha Eliminado el usuario correctamente');
     }
 }

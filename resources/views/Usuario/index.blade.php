@@ -69,7 +69,10 @@
                                             <th>Telefono</th>
                                             <th>Email</th>
                                             <th>Direccion</th>
+                                            <th>imagenes</th>
                                             <th>Operaciones</th>
+                                           
+                                           
                                         </tr>
                                     </thead>
 
@@ -84,30 +87,30 @@
                                             <td>{{$user->telefono}}</td>
                                             <td>{{$user->email}}</td>
                                             <td>{{$user->direccion}}</td>
+                                            <td>{{$user->imagenU}}</td>
                                             <!-- botones  -->
                                             <td>
-                                                <div class="row col-12">
-                                                    <div class="col-4">
-                                                        <a class="btn btn-success m-3"
+                                                <div class="row ">
+                                                    <div class="col-auto">
+                                                        <a class="btn btn-success "
                                                             href="{{route('usuario.show',['usuario'=>$user->id])}}"><i
                                                                 class="fa-regular fa-eye"></i></a>
                                                     </div>
-                                                    <div class="col-4">
-                                                        <a class="btn btn-warning m-3"
+                                                    <div class="col-auto">
+                                                        <a class="btn btn-warning "
                                                             href="{{route('usuario.edit',['usuario'=>$user->id])}}"><i
                                                                 class="fa-solid fa-pen-to-square"></i></a>
                                                     </div>
-                                                    <div class="col-4">
+                                                    <div class="col-auto">
                                                         <form action="usuario/{{$user->id}}" method="post">
                                                             {!! csrf_field() !!}
                                                             @method("delete")
 
-                                                            <button class="btn btn-danger m-3" type="submit"><i
+                                                            <button class="btn btn-danger " type="submit"><i
                                                                     class="fa-solid fa-trash"></i></button>
                                                         </form>
                                                     </div>
                                                 </div>
-
                                             </td>
                                         </tr>
                                         @endforeach

@@ -24,6 +24,7 @@ class PersonFactory extends Factory
             'edad' => 23,
             'direccion' => fake()->sentence(),
             'telefono' => 55,
+            'imagenU'=>55,
             'email' => fake()->unique()->safeEmail(),
             'password' => fake()->unique()->sentence(), // password
             // 'type_user_id' => type_user::all()->random()->id,

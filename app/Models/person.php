@@ -9,15 +9,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class person extends Model
 {
     use HasFactory;
-  // use SoftDeletes;
+    use SoftDeletes;
      //relacion uno a muchos 
     protected $fillable = [
         'name',
         'sexo',
         'edad',
         'direccion',
+        'telefono',
+        'imagenU',
         'email',
-        'password'
+        'password',
         ];
 
     //relacion uno a muchos 

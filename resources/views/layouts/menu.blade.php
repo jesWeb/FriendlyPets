@@ -3,7 +3,7 @@
 <div id="wrapper">
 
  <!-- Sidebar -->
- <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+ <ul class="navbar-nav bg-danger sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
@@ -44,7 +44,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active1">
-    <a class="nav-link" href="/checking">
+    <a class="nav-link" href="/agendas">
     <i class="fa-solid fa-clock"></i>
     <span>Citas</span></a>
 </li>

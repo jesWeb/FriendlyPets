@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 use App\Models\person;
 use Illuminate\Http\Request;
+use Symfony\Contracts\Service\Attribute\Required;
+
 //modelo
 class PersonController extends Controller
 {
@@ -16,11 +18,7 @@ class PersonController extends Controller
         $users = person::all();
         //vista
         return view('Usuario.index',compact('users'));
-        //inner join
-        // $userJoin = person::select('pet','service'),
-        // -> join('name')->get();
-
-
+       
     }    
     
     /**
@@ -49,6 +47,14 @@ class PersonController extends Controller
          $Newuser->email= $request->input('email');
          $Newuser->telefono= $request->input('telefono');
          $Newuser->password= $request->input('password');
+         //imagen
+        if ($request->hasfile('imagenUser')) {
+            $file = $request->file('imagenU');
+            $destinationpath = 'img/imagenU/';
+            $filename = time() .'-'.$file->getClientOriginalName();
+            $Newuser = $request->file('imagenU')->move($destinationpath, $filename );
+            $Newuser->imagenU = $destinationpath .$filename;
+        }
         //guardamos datos en BD 
         $Newuser ->save();
         //vista
@@ -95,6 +101,16 @@ class PersonController extends Controller
        $EddUser = person::findOrFail($id);
        $input=$request->all();
        $EddUser->update($input);
+        //img 
+        if ($request->hasfile('imagenU')) {
+            $file = $request->file('imagenU');
+            $destinationpath = 'img/imagenU/';
+            $filename = time() .'-'.$file->getClientOriginalName();
+            $EddUser = $request->file('imagenUser')->move($destinationpath, $filename );
+            $EddUser->imagenU = $destinationpath .$filename;
+        }
+
+
        return redirect('usuario')->with('messagedit','Se ha actualizado el registro correctamente');
    }
    

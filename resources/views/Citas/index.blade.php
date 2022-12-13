@@ -34,7 +34,7 @@
                             <div class="modal-body">Información de Citas </div>
                             <div class="modal-footer">
                                 <button class="btn btn-danger" type="button" data-dismiss="modal">Cancelar</button>
-                                <a class="btn btn-primary" href="/citas">Continuar</a>
+                                <a class="btn btn-primary" href="/Citas">Continuar</a>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                         <div class="card-header py-3">
                             <h3 class="m-1 font-weight-bold text-primary">Lista De Citas</h3>
                             <div class="d-flex justify-content-end">
-                                <a class="btn btn-primary" href="{{route('checking.create')}}"><i
+                                <a class="btn btn-primary" href="{{route('agendas.create')}}"><i
                                         class="fa-solid fa-layer-group"></i></i></a>
                             </div>
                         </div>
@@ -79,16 +79,16 @@
                                                 <div class="row col-12">
                                                     <div class="col-4">
                                                         <a class="btn btn-success m-3"
-                                                            href="{{route('Citas.show',['checking' => $cita->id])}}"><i
+                                                            href="{{route('agendas.show',['agenda' => $cita->id])}}"><i
                                                                 class="fa-regular fa-eye"></i></a>
                                                     </div>
                                                     <div class="col-4">
                                                         <a class="btn btn-warning m-3"
-                                                            href="{{route('Citas.edit',['checking' => $cita->id])}}"><i
+                                                            href="{{route('agendas.edit',['agenda' => $cita->id])}}"><i
                                                                 class="fa-solid fa-pen-to-square"></i></a>
                                                     </div>
                                                     <div class="col-4">
-                                                        <form action="citas/{{$cita->id}}" method="post">
+                                                        <form action="agendas/{{$cita->id}}" method="post">
                                                             {!! csrf_field() !!}
                                                             @method("delete")
 

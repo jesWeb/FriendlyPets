@@ -11,13 +11,13 @@ class PetController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+je     * @return \Illuminate\Http\Response
      */
     public function index()
     {
          //consulta eloquent laravel 
          $mascota = pet::all() ;
-         return response()->json(['mascotas'=>$mascota,200]);
+         return response()->json(['petsApi',$mascota],200);
     }
 
     /**
@@ -31,7 +31,9 @@ class PetController extends Controller
         //
         $input=request()->all();
         pet::create($input);
-        return ('el grupo se dio de alta con exito ');
+        //mensaje
+        return ('se ha Creado la Mascota correctamente');
+        
     }
 
     /**
@@ -60,7 +62,8 @@ class PetController extends Controller
         $Eddpet = Pet::findOrFail($id);
         $input=$request->all();
         $Eddpet->update($input);
-        return ('el grupo se actualizo con exito');
+        return ('se ha actualizado la Informacion de las Mascota correctamente');
+       
     }
 
     /**
@@ -71,9 +74,11 @@ class PetController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //Eliminar
         $endPet = Pet::findOrFail($id);
         $endPet->delete();
-        return ('el grupo se elimino de manera correcta');
+        //vista mensaje
+        return ('se ha eliminado el usuario correctamente');
+       
     }
 }

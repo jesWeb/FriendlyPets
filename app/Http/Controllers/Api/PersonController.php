@@ -18,7 +18,7 @@ class PersonController extends Controller
         //consulta eloquent laravel 
            $users = person::all();
         //   //return $users;
-           return response()->json(['cliente'=>$users,200]);
+           return response()->json(['usersApi',$users],200);
     }
 
     /**
@@ -33,14 +33,13 @@ class PersonController extends Controller
         $input=request()->all();
         person::create($input);
         //vista mensaje 
-        return ('el cliente se dio de alta con exito ');
+        return ('se ha Creado el usuario correctamente');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
@@ -62,8 +61,7 @@ class PersonController extends Controller
         $EddUser = person::findOrFail($id);
         $input=$request->all();
         $EddUser->update($input);
-        return ('el cliente se actualizo con exito');
-    }
+        return ('se ha actualizado el usuario correctamente');    }
 
     /**
      * Remove the specified resource from storage.
@@ -77,6 +75,6 @@ class PersonController extends Controller
        $user = person::findOrFail($id);
        $user->delete();
        //vista mensaje
-       return ('el grupo se elimino de manera correcta');
+       return ('se ha eliminado el usuario correctamente');
     }
 }

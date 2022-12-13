@@ -17,7 +17,7 @@
     <div class="d-flex justify-content-center aling-content-center">
     @include('components.flash_alerts') 
         <div class="shadow card-body mt-4">
-            <form action="{{route('usuario.store')}}" method="POST">
+            <form action="{{route('usuario.store')}}" ectype="multipart/form-data" method="POST">
                 <!--  -->
                 {{csrf_field()}}
                
@@ -88,11 +88,18 @@
                         <small class="form-text text-danger">{{$message}}</small>
                         @enderror
                 </div>
-                <!-- btn enviar -->
-                <div class="row">
-                     <a class="btn btn-danger m-3"  href="/usuario" >Cancelar</a>
-                    <button type="submit" class="btn btn-primary m-3" value="save">Guadar</button>
+                
+                <!-- imagen -->
+                <div class="mb-4">
+                    <input type="file" class="form-label"  name="imagenUser" id="">
+                </div>
 
+                <!-- btn enviar -->
+                <div class="row justify-content-center">
+                     <div class="">
+                     <button type="submit" class="btn btn-success m-3" value="save">Guadar</button>
+                     <a class="btn btn-danger m-3"  href="/usuario" >Cancelar</a>
+                     </div>
                 </div>
 
             </form>

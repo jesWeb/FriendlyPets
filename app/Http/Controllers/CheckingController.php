@@ -44,7 +44,7 @@ class CheckingController extends Controller
         //guardamos datos en BD 
         $Newcita ->save();
           //guardamos datos en BD 
-          return redirect('checking')->with('message','Se ha creado correctamente la cita');
+          return redirect('Citas')->with('message','Se ha creado correctamente la cita');
     }
  
     /**
@@ -57,7 +57,7 @@ class CheckingController extends Controller
     {
          //mostrar recurso 
     $Mostrarcita = checking::find($id);
-    return view('Citas.show',compact('Mostrarcita'));
+    return view('agendas.show',compact('Mostrarcita'));
        }
  
     /**
@@ -71,7 +71,7 @@ class CheckingController extends Controller
           //editar ususario
        $EddCita = checking::findOrFail($id);
        //vista
-       return view('Citas.edit',compact('EddCita'));
+       return view('agendas.edit',compact('EddCita'));
     }
  
     /**
@@ -87,7 +87,7 @@ class CheckingController extends Controller
        $EddCita = checking::findOrFail($id);
        $input=$request->all();
        $EddCita->update($input);
-       return redirect('checking')->with('messagedit','Se ha actualizado la cita correctamente');
+       return redirect('Citas')->with('messagedit','Se ha actualizado la cita correctamente');
     }
  
     /**
@@ -102,7 +102,7 @@ class CheckingController extends Controller
         $cita = checking::findOrFail($id);
         $cita->delete();
         //return "El resgistro se elimino con exito";
-        return redirect('checking')->with('eliminacion','Se ha eliminado correctamente el usuario');
+        return redirect('Citas')->with('eliminacion','Se ha eliminado correctamente el usuario');
     }
  
 }

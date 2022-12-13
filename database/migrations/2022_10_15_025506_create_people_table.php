@@ -20,13 +20,14 @@ return new class extends Migration
             $table->integer('edad');
             $table->string('direccion');
             $table->string('telefono');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('password')->unique();
-           
+            $table->integer('imagenU');
             //llave foranea
-        //    $table->unsignedBigInteger('type_user_id');
-        // $table->foreign('type_user_id')->references('id')->on('type_users');
+            //$table->unsignedBigInteger('type_user_id');
+            //$table->foreign('type_user_id')->references('id')->on('type_users');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

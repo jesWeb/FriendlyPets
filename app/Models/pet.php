@@ -9,13 +9,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class pet extends Model
 {
     use HasFactory;
-    //use SoftDeletes;
+    use SoftDeletes;
     protected $fillable = [
         'name',
         'sexo',
         'edad',
         'tamaño',
-        'raza'
+        'raza',
+        'people_id'
         ];
 
     public function person() {
